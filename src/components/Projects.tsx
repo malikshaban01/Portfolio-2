@@ -61,7 +61,7 @@ export default function Projects() {
 
       <div className="mt-12 text-center">
         <a
-          href="https://github.com/shabanmalik"
+          href="https://github.com/malikshaban01"
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-2 text-teal-400 font-mono text-sm hover:underline"

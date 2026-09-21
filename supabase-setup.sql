@@ -114,13 +114,13 @@ begin
     insert into public.projects (title, description, tech, github_url, order_index) values
       ('Hotel Reservation System',
        'Console-based hotel reservation app to check room availability, create bookings, and maintain customer records, with file handling to store and retrieve data.',
-       array['C++','File I/O','Visual Studio'], 'https://github.com/shabanmalik', 1),
+       array['C++','File I/O','Visual Studio'], 'https://github.com/malikshaban01', 1),
       ('CSV File Manipulation Tool',
        'C++ data processing tool that reads, parses, filters, sorts, and writes CSV files using string processing and file I/O.',
-       array['C++','File Handling','String Processing'], 'https://github.com/shabanmalik', 2),
+       array['C++','File Handling','String Processing'], 'https://github.com/malikshaban01', 2),
       ('Dungeon Game',
        'Text-based dungeon adventure built with OOP: class-based models for characters, enemies, and items using encapsulation, inheritance, and polymorphism.',
-       array['C++','OOP','Visual Studio'], 'https://github.com/shabanmalik', 3);
+       array['C++','OOP','Visual Studio'], 'https://github.com/malikshaban01', 3);
   end if;
 
   if not exists (select 1 from public.experience) then

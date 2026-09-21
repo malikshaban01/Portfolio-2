@@ -6,10 +6,10 @@ export default function Footer() {
     <footer className="py-10 border-t border-white/5">
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4 text-center">
         <div className="flex items-center gap-5">
-          <a href="https://github.com/shabanmalik" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-slate-400 hover:text-teal-400 transition">
+          <a href="https://github.com/malikshaban01" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-slate-400 hover:text-teal-400 transition">
             <Github size={20} />
           </a>
-          <a href="https://linkedin.com/in/shabanmalik" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-slate-400 hover:text-teal-400 transition">
+          <a href="https://www.linkedin.com/in/shaban-malik-799373378/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-slate-400 hover:text-teal-400 transition">
             <Linkedin size={20} />
           </a>
           <a href="mailto:shabanmalik1238@gmail.com" aria-label="Email" className="text-slate-400 hover:text-teal-400 transition">

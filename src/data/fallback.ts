@@ -16,21 +16,21 @@ export const FALLBACK_PROJECTS = [
     title: 'Hotel Reservation System',
     description: 'Console-based hotel reservation app to check room availability, create bookings, and maintain customer records, with file handling to store and retrieve data.',
     tech: ['C++', 'File I/O', 'Visual Studio'],
-    github_url: 'https://github.com/shabanmalik',
+    github_url: 'https://github.com/malikshaban01',
   },
   {
     id: 2,
     title: 'CSV File Manipulation Tool',
     description: 'C++ data processing tool that reads, parses, filters, sorts, and writes CSV files using string processing and file I/O.',
     tech: ['C++', 'File Handling', 'String Processing'],
-    github_url: 'https://github.com/shabanmalik',
+    github_url: 'https://github.com/malikshaban01',
   },
   {
     id: 3,
     title: 'Dungeon Game',
     description: 'Text-based dungeon adventure built with OOP: class-based models for characters, enemies, and items using encapsulation, inheritance, and polymorphism.',
     tech: ['C++', 'OOP', 'Visual Studio'],
-    github_url: 'https://github.com/shabanmalik',
+    github_url: 'https://github.com/malikshaban01',
   },
 ];
 
