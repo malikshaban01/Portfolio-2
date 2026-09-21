@@ -49,7 +49,7 @@ export default function About() {
           className="lg:col-span-2"
         >
           <div className="relative group max-w-xs mx-auto">
-            <div className="absolute inset-0 border-2 border-teal-400 rounded-lg translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform" />
+            <div className="absolute -inset-2 border-2 border-teal-400 rounded-lg" />
             <div className="relative rounded-lg overflow-hidden aspect-[4/5] bg-navy-900">
               <img
                 src="/profile.jpg"
@@ -59,7 +59,7 @@ export default function About() {
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
               />
-              <div className="absolute inset-0 bg-teal-400/20 group-hover:bg-transparent transition-colors pointer-events-none" />
+          
             </div>
           </div>
 
