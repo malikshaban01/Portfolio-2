@@ -75,10 +75,10 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-12 flex items-center gap-5"
         >
-          <a href="https://github.com/shabanmalik" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-slate-400 hover:text-teal-400 hover:-translate-y-0.5 transition">
+          <a href="https://github.com/malikshaban01" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-slate-400 hover:text-teal-400 hover:-translate-y-0.5 transition">
             <Github size={22} />
           </a>
-          <a href="https://linkedin.com/in/shabanmalik" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-slate-400 hover:text-teal-400 hover:-translate-y-0.5 transition">
+          <a href="https://www.linkedin.com/in/shaban-malik-799373378/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-slate-400 hover:text-teal-400 hover:-translate-y-0.5 transition">
             <Linkedin size={22} />
           </a>
           <a href="mailto:shabanmalik1238@gmail.com" aria-label="Email" className="text-slate-400 hover:text-teal-400 hover:-translate-y-0.5 transition">
