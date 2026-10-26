@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - npm install -g clean-css-cli
+  build:
+    commands:
+      - cleancss -o css/style.min.css css/style.css
+      - sed -i 's/style.css/style.min.css/' index.html
+      - chmod +x scripts/*.sh
+artifacts:
+  files:
+    - '**/*'
