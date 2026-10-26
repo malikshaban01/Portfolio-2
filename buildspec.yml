@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  variables:
+    BUCKET: portfolio-shaban-2026
+    INSTANCE_ID: i-042f2e9f5e1e32689
 phases:
   install:
     runtime-versions:
@@ -7,9 +11,15 @@ phases:
       - npm install -g clean-css-cli
   build:
     commands:
+      - echo Minifying CSS...
       - cleancss -o css/style.min.css css/style.css
       - sed -i 's/style.css/style.min.css/' index.html
-      - chmod +x scripts/*.sh
-artifacts:
-  files:
-    - '**/*'
+  post_build:
+    commands:
+      - echo Uploading site to S3...
+      - aws s3 sync . s3://$BUCKET/ --delete --exclude '.git/*' --exclude 'buildspec.yml' --exclude 'appspec.yml' --exclude 'scripts/*' --exclude 'README.md'
+      - echo Deploying to EC2 through SSM...
+      - REMOTE="aws s3 sync s3://$BUCKET/ /usr/share/nginx/html/ --delete --region us-east-1 && systemctl restart nginx"
+      - CMD_ID=$(aws ssm send-command --instance-ids $INSTANCE_ID --document-name AWS-RunShellScript --parameters commands="$REMOTE" --query Command.CommandId --output text)
+      - aws ssm wait command-executed --command-id $CMD_ID --instance-id $INSTANCE_ID
+      - echo Deployment finished
