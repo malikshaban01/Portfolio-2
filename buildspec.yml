@@ -1,0 +1,26 @@
+version: 0.2
+env:
+  variables:
+    BUCKET: portfolio-shaban-2026
+    INSTANCE_ID: i-042f2e9f5e1e32689
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+    commands:
+      - npm ci
+  pre_build:
+    commands:
+      - npm run lint
+  build:
+    commands:
+      - npm run build
+      - RELEASE=releases/build-$CODEBUILD_BUILD_NUMBER
+      - echo Publishing $RELEASE to S3...
+      - aws s3 sync dist/ s3://$BUCKET/$RELEASE/ --delete
+      - echo Deploying to EC2 through SSM...
+      - REMOTE="rm -rf /usr/share/nginx/html/* && aws s3 sync s3://$BUCKET/$RELEASE/ /usr/share/nginx/html/ --region us-east-1 && chmod -R a+rX /usr/share/nginx/html && nginx -t && systemctl restart nginx && curl -fsS -o /dev/null http://localhost/"
+      - CMD_ID=$(aws ssm send-command --instance-ids $INSTANCE_ID --document-name AWS-RunShellScript --parameters commands="$REMOTE" --query Command.CommandId --output text)
+      - |
+        aws ssm wait command-executed --command-id $CMD_ID --instance-id $INSTANCE_ID || { aws ssm get-command-invocation --command-id $CMD_ID --instance-id $INSTANCE_ID --query '[StandardOutputContent,StandardErrorContent]' --output text; exit 1; }
+      - echo Deployment finished
