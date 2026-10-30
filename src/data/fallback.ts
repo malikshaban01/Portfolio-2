@@ -1,16 +1,23 @@
-// Built-in content shown when the /api routes / Supabase are unavailable or empty.
+// Built-in site content.
 // Source: Muhammad Shaban Malik's resume.
 
 export const FALLBACK_SKILLS = [
   { id: 1, name: 'Programming', icon: '💻', skills: ['C++', 'Object-Oriented Programming', 'File Handling', 'String Processing'] },
   { id: 2, name: 'Computer Science', icon: '🧠', skills: ['Data Structures', 'Algorithms', 'Linked Lists', 'Stacks', 'Queues', 'Trees', 'Sorting', 'Searching'] },
   { id: 3, name: 'Database', icon: '🗄️', skills: ['SQL', 'MySQL Workbench', 'Database Design', 'ER Diagrams', 'Normalization', 'Relational Schema Design'] },
-  { id: 4, name: 'DevOps & Cloud', icon: '☁️', skills: ['Linux', 'Shell Scripting', 'Docker', 'Git', 'GitHub', 'CI/CD Pipelines', 'AWS Basics', 'CI/CD on AWS'] },
+  { id: 4, name: 'DevOps & Cloud', icon: '☁️', skills: ['Linux', 'Shell Scripting', 'Docker', 'Git', 'GitHub', 'CI/CD Pipelines', 'AWS EC2', 'Nginx'] },
   { id: 5, name: 'Tools', icon: '🛠️', skills: ['Visual Studio IDE', 'Linux Terminal', 'Docker', 'Git / GitHub', 'AWS Console'] },
   { id: 6, name: 'Professional Skills', icon: '🤝', skills: ['Problem Solving', 'Debugging', 'Team Collaboration', 'Adaptability', 'Fast Learning'] },
 ];
 
 export const FALLBACK_PROJECTS = [
+  {
+    id: 4,
+    title: 'Portfolio Deployment on AWS',
+    description: 'Took this portfolio to production on AWS EC2: provisioned the Linux server, configured Nginx to serve the site, and automated build and release steps with a repeatable deployment workflow.',
+    tech: ['AWS EC2', 'Nginx', 'Linux', 'Shell Scripting', 'CI/CD'],
+    github_url: 'https://github.com/malikshaban01',
+  },
   {
     id: 1,
     title: 'Hotel Reservation System',
@@ -39,7 +46,8 @@ export const FALLBACK_EXPERIENCE = [
     id: 1,
     role: 'DevOps Intern',
     company: 'Punjab Information Technology Board (PITB)',
-    period: 'July 2026 - Present',
+    period: 'July 2026 - October 2026',
+    status: 'Completed',
     bullets: [
       'Linux and shell scripting to manage and automate development and deployment tasks.',
       'Built and managed Docker containers for isolated, reproducible environments.',
@@ -55,7 +63,7 @@ export const FALLBACK_EDUCATION = [
     degree: 'BS Computer Science',
     institution: 'University of Central Punjab, Lahore',
     period: '2024 - Present',
-    details: '4th Semester · CGPA 3.22 / 4.00',
+    details: '5th Semester · CGPA 3.22 / 4.00',
     coursework: ['Introduction to Computing', 'Programming Fundamentals', 'Object-Oriented Programming', 'Data Structures & Algorithms', 'Database Systems'],
   },
 ];

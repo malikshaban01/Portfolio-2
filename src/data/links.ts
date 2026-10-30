@@ -2,3 +2,5 @@
 // Use the full address, starting with https://
 export const GITHUB_URL = 'https://github.com/malikshaban01';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/shaban-malik-799373378/';
+export const EMAIL = 'shabanmalik1238@gmail.com';
+export const LOCATION = 'Lahore, Pakistan';

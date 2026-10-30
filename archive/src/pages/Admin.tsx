@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import supabase from '../lib/supabase';
@@ -23,16 +23,16 @@ export default function Admin() {
     if (!authLoading && !user) nav('/admin/login');
   }, [authLoading, user, nav]);
 
-  const load = () => {
+  const load = useCallback(() => {
     fetch('/api/resume').then(r => r.json()).then(setResume).catch(() => {});
     fetch('/api/projects').then(r => r.json()).then(setProjects).catch(() => {});
     if (session?.access_token) {
       fetch('/api/messages', { headers: { Authorization: `Bearer ${session.access_token}` } })
         .then(r => r.json()).then(setMessages).catch(() => {});
     }
-  };
+  }, [session]);
 
-  useEffect(() => { if (user) load(); }, [user, session]);
+  useEffect(() => { if (user) load(); }, [user, load]);
 
   const uploadResume = async (file: File) => {
     setStatus(null);
@@ -53,8 +53,8 @@ export default function Admin() {
         if (!res.ok) throw new Error(data.error);
         setStatus({ type: 'success', text: 'Resume uploaded successfully.' });
         load();
-      } catch (e: any) {
-        setStatus({ type: 'error', text: e.message });
+      } catch (e) {
+        setStatus({ type: 'error', text: e instanceof Error ? e.message : 'Something went wrong.' });
       } finally {
         setUploading(false);
       }
@@ -102,6 +102,12 @@ export default function Admin() {
 
   const logout = async () => { await supabase.auth.signOut(); nav('/admin/login'); };
 
+  const tabs = [
+    { id: 'resume', label: 'Resume', icon: FileText },
+    { id: 'messages', label: `Messages (${messages.length})`, icon: Mail },
+    { id: 'projects', label: 'Projects', icon: Plus },
+  ] as const;
+
   if (authLoading || !user) {
     return <div className="min-h-screen flex items-center justify-center"><Loader2 className="animate-spin text-teal-400" /></div>;
   }
@@ -125,14 +131,10 @@ export default function Admin() {
 
       <div className="max-w-6xl mx-auto px-6 py-8">
         <nav className="flex gap-1 mb-8 border-b border-white/5">
-          {[
-            { id: 'resume', label: 'Resume', icon: FileText },
-            { id: 'messages', label: `Messages (${messages.length})`, icon: Mail },
-            { id: 'projects', label: 'Projects', icon: Plus },
-          ].map(t => (
+          {tabs.map(t => (
             <button
               key={t.id}
-              onClick={() => setTab(t.id as any)}
+              onClick={() => setTab(t.id)}
               className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition ${
                 tab === t.id ? 'text-teal-400 border-teal-400' : 'text-slate-400 border-transparent hover:text-slate-200'
               }`}
