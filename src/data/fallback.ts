@@ -17,6 +17,7 @@ export const FALLBACK_PROJECTS = [
     description: 'Took this portfolio to production on AWS EC2: provisioned the Linux server, configured Nginx to serve the site, and automated build and release steps with a repeatable deployment workflow.',
     tech: ['AWS EC2', 'Nginx', 'Linux', 'Shell Scripting', 'CI/CD'],
     github_url: 'https://github.com/malikshaban01',
+    image: '/assets/images/portfolio-banner.webp',
   },
   {
     id: 1,
@@ -24,6 +25,7 @@ export const FALLBACK_PROJECTS = [
     description: 'Console-based hotel reservation app to check room availability, create bookings, and maintain customer records, with file handling to store and retrieve data.',
     tech: ['C++', 'File I/O', 'Visual Studio'],
     github_url: 'https://github.com/malikshaban01',
+    image: '/assets/images/hotel-reservation-banner.webp',
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ export const FALLBACK_PROJECTS = [
     description: 'C++ data processing tool that reads, parses, filters, sorts, and writes CSV files using string processing and file I/O.',
     tech: ['C++', 'File Handling', 'String Processing'],
     github_url: 'https://github.com/malikshaban01',
+    image: '/assets/images/csv-tool-banner.webp',
   },
   {
     id: 3,
@@ -38,6 +41,7 @@ export const FALLBACK_PROJECTS = [
     description: 'Text-based dungeon adventure built with OOP: class-based models for characters, enemies, and items using encapsulation, inheritance, and polymorphism.',
     tech: ['C++', 'OOP', 'Visual Studio'],
     github_url: 'https://github.com/malikshaban01',
+    image: '/assets/images/dungeon-game-banner.webp',
   },
 ];
 

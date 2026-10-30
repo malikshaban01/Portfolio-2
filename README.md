@@ -1,5 +1,7 @@
 # Shaban Malik — Portfolio
 
+![Shaban Malik portfolio banner](public/assets/images/portfolio-banner.webp)
+
 Personal portfolio built as a static single-page site with React, TypeScript, Vite, Tailwind CSS v4, and Framer Motion.
 
 ## Stack

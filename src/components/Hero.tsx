@@ -42,6 +42,7 @@ export default function Hero() {
   const reduce = useReducedMotion();
   const typed = useTypewriter(ROLES, !reduce);
   const sectionRef = useRef<HTMLElement>(null);
+  const [heroImageFailed, setHeroImageFailed] = useState(false);
 
   const onPointerMove = (e: React.PointerEvent<HTMLElement>) => {
     const el = sectionRef.current;
@@ -61,6 +62,17 @@ export default function Hero() {
         aria-hidden
         className="bg-grid pointer-events-none absolute inset-0 opacity-[0.35] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent)]"
       />
+      {!heroImageFailed && (
+        <img
+          src="/assets/images/portfolio-hero.webp"
+          alt=""
+          aria-hidden
+          loading="lazy"
+          decoding="async"
+          onError={() => setHeroImageFailed(true)}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.12] [mask-image:radial-gradient(ellipse_75%_65%_at_65%_45%,black,transparent)]"
+        />
+      )}
       <div aria-hidden className="radial-fade pointer-events-none absolute inset-0" />
       <div
         aria-hidden

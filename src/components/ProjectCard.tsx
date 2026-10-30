@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { fadeUp } from '../lib/motion';
@@ -9,6 +9,7 @@ export interface Project {
   description: string;
   tech: string[];
   github_url: string;
+  image?: string;
   featured?: boolean;
 }
 
@@ -28,6 +29,7 @@ export default function ProjectCard({
   featured?: boolean;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const [imageFailed, setImageFailed] = useState(false);
 
   const onPointerMove = (e: React.PointerEvent<HTMLElement>) => {
     const el = ref.current;
@@ -63,6 +65,22 @@ export default function ProjectCard({
           featured ? 'min-h-52 md:min-h-full' : 'h-40'
         }`}
       >
+        {project.image && !imageFailed && (
+          <>
+            <img
+              src={project.image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              onError={() => setImageFailed(true)}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-navy-950/75 via-navy-950/10 to-navy-950/20"
+            />
+          </>
+        )}
         <div className="bg-grid absolute inset-0 opacity-40" />
         <div className="absolute inset-0 flex items-end justify-between p-5">
           <span className="font-mono text-4xl font-medium text-white/15">0{index + 1}</span>
